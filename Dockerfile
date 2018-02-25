@@ -53,8 +53,6 @@ RUN git clone https://github.com/freeCodeCamp/freeCodeCamp.git
 # Change directory
 WORKDIR freeCodeCamp
 
-RUN chmod 750 ./start.sh
-
 COPY ./start.sh ./
 ENTRYPOINT ./start.sh
 
