@@ -39,7 +39,7 @@ RUN echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | 
 # Reload local package database
 RUN apt-get update
 
-# Install latest stable version of mongodb and git
+# Install latest stable version of mongodb ,git, and golang
 RUN apt-get install -y mongodb-org \
     && apt-get install -y git
 
@@ -52,6 +52,8 @@ RUN git clone https://github.com/freeCodeCamp/freeCodeCamp.git
 
 # Change directory
 WORKDIR freeCodeCamp
+
+RUN npm update && npm install
 
 COPY ./start.sh ./
 ENTRYPOINT ./start.sh
